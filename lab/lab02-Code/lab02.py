@@ -18,8 +18,7 @@ def lambda_curry2(func):
     >>> [type(x).__name__ for x in ast.parse(inspect.getsource(lambda_curry2)).body[0].body]
     ['Expr', 'Return']
     """
-    return ______
-
+    return lambda x:lambda y:func(x,y)
 
 def lambda_curry2_syntax_check():
     """Checks that definition of lambda_curry2 is just a return statement.
@@ -59,8 +58,13 @@ def count_cond(condition):
     >>> count_primes(20)   # 2, 3, 5, 7, 11, 13, 17, 19
     8
     """
-    "*** YOUR CODE HERE ***"
-
+    def countnum(n):
+        res = 0
+        for i in range(1,n+1):
+            if(condition(n,i)):
+                res+=1
+        return res
+    return countnum
 
 def composer(f, g):
     """Return the composition function which given x, computes f(g(x)).
@@ -94,7 +98,6 @@ def composite_identity(f, g):
     >>> b1(4)                            # (4 + 1)^2 != 4^2 + 1
     False
     """
-    "*** YOUR CODE HERE ***"
 
 
 def cycle(f1, f2, f3):
