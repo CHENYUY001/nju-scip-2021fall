@@ -98,6 +98,7 @@ def composite_identity(f, g):
     >>> b1(4)                            # (4 + 1)^2 != 4^2 + 1
     False
     """
+    return lambda x: g(f(x))==f(g(x))
 
 
 def cycle(f1, f2, f3):
@@ -126,4 +127,19 @@ def cycle(f1, f2, f3):
     >>> do_two_cycles(1)
     19
     """
-    "*** YOUR CODE HERE ***"
+    def my_cycle(o):
+        def func(n):
+            ans = n
+            o-=1
+            while(o>=0):
+                if(o%3==0):
+                    ans = f1(ans)
+                if(o%3==1):
+                    ans = f2(ans)
+                if(o%3==2):
+                    ans = f3(ans)
+                o-=1
+            return ans
+        return func
+    return my_cycle
+

@@ -26,7 +26,7 @@ def compose(h, g):
     >>> double_inc(4)
     6
     """
-    "*** YOUR CODE HERE ***"
+
 
 def product(n, f):
     """Return the product of the first n terms in a sequence.
