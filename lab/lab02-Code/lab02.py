@@ -127,18 +127,18 @@ def cycle(f1, f2, f3):
     >>> do_two_cycles(1)
     19
     """
-    def my_cycle(o):
+    def my_cycle(x):
         def func(n):
             ans = n
-            o-=1
-            while(o>=0):
-                if(o%3==0):
+            i = 0
+            while(i<x):
+                if(i%3==0):
                     ans = f1(ans)
-                if(o%3==1):
+                if(i%3==1):
                     ans = f2(ans)
-                if(o%3==2):
+                if(i%3==2):
                     ans = f3(ans)
-                o-=1
+                i+=1
             return ans
         return func
     return my_cycle
