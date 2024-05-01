@@ -26,6 +26,7 @@ def compose(h, g):
     >>> double_inc(4)
     6
     """
+    return lambda x: h(g(x))
 
 
 def product(n, f):
@@ -46,7 +47,11 @@ def product(n, f):
     >>> product(3, triple)    # 1*3 * 2*3 * 3*3
     162
     """
-    "*** YOUR CODE HERE ***"
+    ans = 1
+    while(n>=1):
+        ans*=f(n)
+        n-=1
+    return ans
 
 def accumulate(combiner, base, n, f):
     """Return the result of combining the first n terms in a sequence and base.
@@ -68,7 +73,11 @@ def accumulate(combiner, base, n, f):
     >>> accumulate(lambda x, y: (x + y) % 17, 19, 20, square)
     16
     """
-    "*** YOUR CODE HERE ***"
+    ans = base
+    while(n>=1):
+        ans = combiner(ans,f(n))
+        n-=1
+    return ans
 
 def summation_using_accumulate(n, f):
     """Returns the sum of f(1) + ... + f(n). The implementation
@@ -84,7 +93,10 @@ def summation_using_accumulate(n, f):
     ...       ['Recursion', 'For', 'While'])
     True
     """
-    "*** YOUR CODE HERE ***"
+    ans = 0
+    while(n>=1):
+        
+    
 
 def product_using_accumulate(n, f):
     """An implementation of product using accumulate.
