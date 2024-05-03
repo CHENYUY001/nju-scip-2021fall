@@ -146,7 +146,15 @@ def protected_secret(password, secret, num_attempts):
     SECRET LOCKED
     """
     def get_secret(password_attempt):
-        "*** YOUR CODE HERE ***"
+        attempts = num_attempts
+        if(attempts<=0):
+            print("SECRET LOCKED")
+        elif(password_attempt==password):
+            print(secret)
+        else:
+            print("INCORRECT PASSWORD")
+            attempts-=1
+        return protected_secret(password,secret,num_attempts)
     return get_secret
 
 ##########################
