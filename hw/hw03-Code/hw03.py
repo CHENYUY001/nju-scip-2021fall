@@ -19,7 +19,12 @@ def number_of_six(n):
     ...       ['Assign', 'AugAssign'])
     True
     """
-    "*** YOUR CODE HERE ***"
+    if(n==0):
+        return 0
+    if(n%10==6):
+        return 1+number_of_six(n//10)
+    else:
+        return number_of_six(n//10)
 
 
 def pingpong(n):
@@ -54,7 +59,8 @@ def pingpong(n):
     >>> check(HW_SOURCE_FILE, 'pingpong', ['Assign', 'AugAssign'])
     True
     """
-    "*** YOUR CODE HERE ***"
+    if(n%10==8||n%8==0):
+        return 
 
 
 def missing_digits(n):
