@@ -60,7 +60,7 @@ def size(w):
     5
     """
     assert is_planet(w), 'must call size on a planet'
-    "*** YOUR CODE HERE ***"
+    "*** your code here ***"
 
 def is_planet(w):
     """Whether w is a planet."""

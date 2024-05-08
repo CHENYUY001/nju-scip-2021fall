@@ -59,8 +59,14 @@ def pingpong(n):
     >>> check(HW_SOURCE_FILE, 'pingpong', ['Assign', 'AugAssign'])
     True
     """
-    if(n%10==8||n%8==0):
-        return 
+    def transfer(times,result,flag):
+        if(times==n):
+            return result
+        if(number_of_six(times)or times%6==0):
+            return transfer(times+1,result-flag,-flag)
+        else:
+            return transfer(times+1,result+flag,flag)
+    return transfer(1,1,1)
 
 
 def missing_digits(n):
